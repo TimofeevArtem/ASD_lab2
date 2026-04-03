@@ -49,7 +49,7 @@ int main() {
     SetConsoleCP(CP_UTF8);
 
     FILE *file;
-    data table[10000]; // тут было table[100]
+    data table[100000]; // тут было table[100]
     int i = 0;
     float key;
     int answer;
@@ -154,7 +154,7 @@ int main() {
     printf("Введите количество чисел для генерации (не менее 15): ");
     scanf("%d", &count);
     
-    for (int j = 0; j < count && j < 10000; j++) { //тут было j < 100
+    for (int j = 0; j < count && j < 100000; j++) { //тут было j < 100
         float random_number = (float)(rand());
         table[j].key = random_number;
     }
@@ -162,6 +162,10 @@ int main() {
     printf("\n");
     if (i < 15) {
         printf("Число должно быть больше 15\n");
+        return 1;
+    }
+    if (i > 100000) {
+        printf("Число должно быть не больше 100000\n");
         return 1;
     }
 
